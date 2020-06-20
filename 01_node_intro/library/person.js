@@ -2,18 +2,18 @@ class Person {
     
     /**
      * @param {String} name 
-     * @param {String} city 
+     * @param {String} address
      */
-    constructor(name = '', city = ''){
+    constructor(name = '', address = ''){
         this._name = name;
-        this._city = city;
+        this._address = address;
     }
 
     /** 
      * @returns {String} 
      */
-    getUserDetails() {
-        return `${this._name} ${this._city}`;
+    getInfo() {
+        return `${this._name} ${this._address}`;
     }
 }
 
