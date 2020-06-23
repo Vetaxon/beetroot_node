@@ -1,0 +1,24 @@
+{
+  "name": "beetroot_node",
+  "version": "1.0.0",
+  "description": "Beetroot NodeJS course home works and personal projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vetaxon/beetroot_node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vetaxon/beetroot_node/issues"
+  },
+  "homepage": "https://github.com/Vetaxon/beetroot_node#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "process": "latest"
+  }
+}
