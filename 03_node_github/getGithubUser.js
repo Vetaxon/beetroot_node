@@ -8,16 +8,22 @@ function run() {
     enterNameOut();
 
     process.stdin.on('data', (data) => {
+        const intervalLoader = getLoaderInterval();
         getUser(data.trim()).then(res => {
             const [user, repos] = res;
+            clear();
             process.stdin.write(`${user.name} has ${repos.length} repos ))\n`);
         }).catch(error => {
+            clear();
             if (error instanceof GithubError) {
                 process.stdin.write('Oppss!Github says ' + error + '\n');
             } else {
                 process.stdin.write(error + '\n');
             }
-        }).finally(() => enterNameOut())
+        }).finally(() => {
+            clearInterval(intervalLoader);
+            enterNameOut();
+        })
     });
 }
 
@@ -49,6 +55,25 @@ function getUser(user) {
 
 function enterNameOut() {
     process.stdin.write('Enter github name:\n');
+}
+
+setInterval(() => {
+
+}, 200);
+
+function getLoaderInterval() {
+    let i = 0;
+    return  setInterval(() => {
+        if (i > 2) {
+            i = 0;
+        }
+        clear();
+        process.stdin.write('Loading ' + Array(++i).fill('.').join('') + '\n');
+    }, 200);
+}
+
+function clear() {
+    process.stdout.write('\x1Bc');
 }
 
 module.exports = run;
